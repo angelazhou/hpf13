@@ -1,3 +1,7 @@
+<!-- Kenny Lin               -->
+<!-- HackPrinceton Fall 2013 -->
+<!-- November 10, 2013       -->
+
 <head>
     <title>Sorta like Piazza but not really</title>
 </head>
@@ -15,11 +19,16 @@
 </template>
 
 <template name="input">
-    <p>Ask a question: <input type="text" id="message"></p>
+    <p>Ask a question: <input type="text" id="message"><input type="submit" id="submit"></p>
 </template>
 
 <template name="messages">
     {{#each messages}}
-    <strong>{{name}}:</strong> {{message}}<br><input type="button" class="upvote" value="Good question"/> {{votes}}<br>
+    <strong>{{name}}:</strong> {{message}}<br><input type="button" class="upvote" value="Good question"/>{{> upvotes }}<br>
     {{/each}}
+</template>
+
+<!-- helper template for "messages" template -->
+<template name="upvotes">
+    {{upvotes}}
 </template>
