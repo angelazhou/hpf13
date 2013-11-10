@@ -20,15 +20,6 @@
 
 <template name="messages">
     {{#each messages}}
-    <strong>{{name}}:</strong> {{message}}<br><button onClick="upvote({{message}})">Good question</button> {{voteCount}}<br>
+    <strong>{{name}}:</strong> {{message}}<br><input type="button" class="upvote" value="Good question"/> {{votes}}<br>
     {{/each}}
-
-    <!-- fix upvote button onclick behavior -->
-    <script type="text/javascript">
-    function upvote(message)
-    {
-        Messages.find(message: message).voteCount++;
-    }
-    </script>
 </template>
-
