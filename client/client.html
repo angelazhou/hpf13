@@ -1,0 +1,34 @@
+<head>
+    <title>Sorta like Piazza but not really</title>
+</head>
+
+<body>
+    {{loginButtons align="right"}}<br>
+    <h1>Sorta like Piazza but not really</h1>
+    {{> welcome }}
+    {{> input }}
+    {{> messages }}
+</body>
+
+<template name="welcome">
+    <p>{{message}}</p>
+</template>
+
+<template name="input">
+    <p>Ask a question: <input type="text" id="message"></p>
+</template>
+
+<template name="messages">
+    {{#each messages}}
+    <strong>{{name}}:</strong> {{message}}<br><button onClick="upvote({{message}})">Good question</button> {{voteCount}}<br>
+    {{/each}}
+
+    <!-- fix upvote button onclick behavior -->
+    <script type="text/javascript">
+    function upvote(message)
+    {
+        Messages.find(message: message).voteCount++;
+    }
+    </script>
+</template>
+
